@@ -76,9 +76,9 @@ ${alignr}\
 UPTIME
 #
 ${font Latin Modern Mono,LM Mono Caps 10:size=15}
-${color 92a1aa}${alignc -32}${time %A} \
-${color 92a1aa}${alignc -32}${time %d. %B} \
-${color 92a1aa}${alignc -32}${time %Y}\
+${color 92a1aa}${alignc -29}${time %A} \
+${color 92a1aa}${alignc -29}${time %B %d} \
+${color 92a1aa}${alignc -29}${time %Y}\
 ${font Latin Modern Mono,LM Mono Caps 10:size=16}\
 ${voffset -32}\
 ${alignr}\
