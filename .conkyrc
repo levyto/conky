@@ -60,52 +60,43 @@ conky.config = {
 }
 
 conky.text = [[
-${voffset -35}
-${font Latin Modern Mono,LM Mono Caps 10:bold:size=16}${color 92a1aa}${hr 1}
-#
-#
-#
-${voffset -40}
-${font Latin Modern Mono,LM Mono Caps 10:size=42}\
-${color e3f4ff}\
-${alignc -32}\
-${time %H:%M:%S}\
-${font Latin Modern Mono,LM Mono Caps 10:size=16}\
-${voffset -23}\
-${alignr}\
-UPTIME
-#
-${font Latin Modern Mono,LM Mono Caps 10:size=15}
-${color 92a1aa}${alignc -29}${time %A} \
-${color 92a1aa}${alignc -29}${time %B %d} \
-${color 92a1aa}${alignc -29}${time %Y}\
-${font Latin Modern Mono,LM Mono Caps 10:size=16}\
-${voffset -32}\
-${alignr}\
-${uptime_short}
-#
-#
-#
-${voffset 3}
-${font Latin Modern Mono,LM Mono Caps 10:bold:size=16}${color 92a1aa}${hr 1}
-${voffset -30}
-#
-#
-#
-${font Latin Modern Mono,LM Mono Caps 10:size=16}\
-${color e3f4ff}\
-SYSTEM\
+${voffset -26}
 ${font Latin Modern Mono,LM Mono Caps 10:size=12}\
 ${color 92a1aa}\
-    $sysname $kernel\
+$sysname $kernel\
 ${alignr}\
 ${execi 6000 echo "$( lsb_release -d | grep 'Descr' | awk -n {'print $2 " " $3" " $4" " $5'} )""$( cat /etc/*release | grep 'VERSION="' | awk '{print $3" "substr($4,1,length($4)-1)}' )"}
 #
 #
 #
-${voffset -20}
+${voffset -25}
 ${color 92a1aa}${hr 1}
-${voffset -20}
+${voffset -38}
+#
+#
+#
+${color e3f4ff}\
+${font Latin Modern Mono,LM Mono Caps 10:size=44}\
+${alignc}\
+${time %H:%M:%S}
+#
+${voffset -182}
+${color e3f4ff}\
+${font Latin Modern Mono,LM Mono Caps 10:size=16}\
+UPTIME\
+${alignr}${time %B %d}
+#
+${voffset -5}\
+${color 92a1aa}\
+${font Latin Modern Mono,LM Mono Caps 10:size=16}\
+${uptime_short}\
+${alignr}${time %A}
+#
+#
+#
+${voffset -34}
+${font Latin Modern Mono,LM Mono Caps 10:bold:size=16}${color 92a1aa}${hr 1}
+${voffset -30}
 #
 #
 #
@@ -167,7 +158,7 @@ ${font Latin Modern Mono,LM Mono Caps 10:size=12}\
 ${color 92a1aa}\# Processes: $processes
 #
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
-${color e3f4ff}\#    PID  NAME               CPU       \#    PID  NAME             MEMORY  MEM%
+${color e3f4ff}\#    PID  NAME               CPU %     \#    PID  NAME             MEMORY  MEM %
 #
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color 92a1aa}1 ${top pid 1} \
@@ -262,6 +253,6 @@ ${alignr}${totaldown wlp3s0}
 #
 ${voffset -15}
 ${color 92a1aa}${hr 1}
-${voffset -50}
+${voffset -77}
 ]]
 
