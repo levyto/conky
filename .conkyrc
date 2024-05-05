@@ -111,14 +111,14 @@ ${execi 6000 lscpu | grep 'Model name:' | awk '{print $3" "$4" "$5" "$6" "$7" "$
 ${voffset -20}
 #
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
-${color e3f4ff}\#1 ${color 92a1aa}${if_match ${cpu cpu0}<10} ${endif}${cpu cpu0}% ${cpubar cpu0 7,78}\
- ${color e3f4ff} \#2 ${color 92a1aa}${if_match ${cpu cpu1}<10} ${endif}${cpu cpu1}% ${cpubar cpu1 7,78}\
- ${color e3f4ff} \#3 ${color 92a1aa}${if_match ${cpu cpu2}<10} ${endif}${cpu cpu2}% ${cpubar cpu2 7,78}\
- ${color e3f4ff} \#4 ${color 92a1aa}${if_match ${cpu cpu3}<10} ${endif}${cpu cpu3}% ${cpubar cpu3 7,78}
-${color e3f4ff}\#5 ${color 92a1aa}${if_match ${cpu cpu4}<10} ${endif}${cpu cpu4}% ${cpubar cpu4 7,78}\
- ${color e3f4ff} \#6 ${color 92a1aa}${if_match ${cpu cpu5}<10} ${endif}${cpu cpu5}% ${cpubar cpu5 7,78}\
- ${color e3f4ff} \#7 ${color 92a1aa}${if_match ${cpu cpu6}<10} ${endif}${cpu cpu6}% ${cpubar cpu6 7,78}\
- ${color e3f4ff} \#8 ${color 92a1aa}${if_match ${cpu cpu7}<10} ${endif}${cpu cpu7}% ${cpubar cpu7 7,78}
+${color e3f4ff}\#1${color 92a1aa}${if_match ${cpu cpu0}<100} ${if_match ${cpu cpu0}<10} ${endif}${endif}${cpu cpu0}% ${cpubar cpu0 7,78}\
+ ${color e3f4ff} \#2${color 92a1aa}${if_match ${cpu cpu1}<100} ${if_match ${cpu cpu1}<10} ${endif}${endif}${cpu cpu1}% ${cpubar cpu1 7,78}\
+ ${color e3f4ff} \#3${color 92a1aa}${if_match ${cpu cpu2}<100} ${if_match ${cpu cpu2}<10} ${endif}${endif}${cpu cpu2}% ${cpubar cpu2 7,78}\
+ ${color e3f4ff} \#4${color 92a1aa}${if_match ${cpu cpu3}<100} ${if_match ${cpu cpu3}<10} ${endif}${endif}${cpu cpu3}% ${cpubar cpu3 7,78}
+${color e3f4ff}\#5${color 92a1aa}${if_match ${cpu cpu4}<100} ${if_match ${cpu cpu4}<10} ${endif}${endif}${cpu cpu4}% ${cpubar cpu4 7,78}\
+ ${color e3f4ff} \#6${color 92a1aa}${if_match ${cpu cpu5}<100} ${if_match ${cpu cpu5}<10} ${endif}${endif}${cpu cpu5}% ${cpubar cpu5 7,78}\
+ ${color e3f4ff} \#7${color 92a1aa}${if_match ${cpu cpu6}<100} ${if_match ${cpu cpu6}<10} ${endif}${endif}${cpu cpu6}% ${cpubar cpu6 7,78}\
+ ${color e3f4ff} \#8${color 92a1aa}${if_match ${cpu cpu7}<100} ${if_match ${cpu cpu7}<10} ${endif}${endif}${cpu cpu7}% ${cpubar cpu7 7,78}
 ${voffset -10}
 #
 #
