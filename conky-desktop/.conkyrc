@@ -65,7 +65,7 @@ ${font Latin Modern Mono,LM Mono Caps 10:size=12}\
 ${color 92a1aa}\
 $sysname $kernel\
 ${alignr}\
-${execi 6000 echo "$( lsb_release -d | grep 'Descr' | awk -n {'print $2 " " $3" " $4" " $5'} )""$( cat /etc/*release | grep 'VERSION="' | awk '{print $3" "substr($4,1,length($4)-1)}' )"}
+${execi 6000 echo "$( lsb_release -d | grep 'Descr' | awk {'print $2 " " $3" " $4" " $5'} )""$( cat /etc/*release | grep 'VERSION="' | awk '{print $3" "substr($4,1,length($4)-1)}' )"}
 #
 #
 #
@@ -111,37 +111,45 @@ ${execi 6000 lscpu | grep 'Model name:' | awk '{print $3" "$4" "$5" "$6" "$7" "$
 ${voffset -20}
 #
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
-${color e3f4ff}\#1${color 92a1aa}${if_match ${cpu cpu1}<100} ${if_match ${cpu cpu1}<10} ${endif}${endif}${cpu cpu1}% ${cpubar cpu1 7,78}\
- ${color e3f4ff} \#2${color 92a1aa}${if_match ${cpu cpu2}<100} ${if_match ${cpu cpu2}<10} ${endif}${endif}${cpu cpu2}% ${cpubar cpu2 7,78}\
- ${color e3f4ff} \#3${color 92a1aa}${if_match ${cpu cpu3}<100} ${if_match ${cpu cpu3}<10} ${endif}${endif}${cpu cpu3}% ${cpubar cpu3 7,78}\
- ${color e3f4ff} \#4${color 92a1aa}${if_match ${cpu cpu4}<100} ${if_match ${cpu cpu4}<10} ${endif}${endif}${cpu cpu4}% ${cpubar cpu4 7,78}
-${color e3f4ff}\#5${color 92a1aa}${if_match ${cpu cpu5}<100} ${if_match ${cpu cpu5}<10} ${endif}${endif}${cpu cpu5}% ${cpubar cpu5 7,78}\
- ${color e3f4ff} \#6${color 92a1aa}${if_match ${cpu cpu6}<100} ${if_match ${cpu cpu6}<10} ${endif}${endif}${cpu cpu6}% ${cpubar cpu6 7,78}\
- ${color e3f4ff} \#7${color 92a1aa}${if_match ${cpu cpu7}<100} ${if_match ${cpu cpu7}<10} ${endif}${endif}${cpu cpu7}% ${cpubar cpu7 7,78}\
- ${color e3f4ff} \#8${color 92a1aa}${if_match ${cpu cpu8}<100} ${if_match ${cpu cpu8}<10} ${endif}${endif}${cpu cpu8}% ${cpubar cpu8 7,78}
+${color e3f4ff}\#1 ${color 92a1aa}${if_match ${cpu cpu1}<100} ${if_match ${cpu cpu1}<10} ${endif}${endif}${cpu cpu1}% ${cpubar cpu1 7,65}\
+ ${color e3f4ff} \#2  ${color 92a1aa}${if_match ${cpu cpu2}<100} ${if_match ${cpu cpu2}<10} ${endif}${endif}${cpu cpu2}% ${cpubar cpu2 7,65}\
+ ${color e3f4ff} \#3  ${color 92a1aa}${if_match ${cpu cpu3}<100} ${if_match ${cpu cpu3}<10} ${endif}${endif}${cpu cpu3}% ${cpubar cpu3 7,65}\
+ ${color e3f4ff} \#4  ${color 92a1aa}${if_match ${cpu cpu4}<100} ${if_match ${cpu cpu4}<10} ${endif}${endif}${cpu cpu4}% ${cpubar cpu4 7,65}
+${color e3f4ff}\#5 ${color 92a1aa}${if_match ${cpu cpu5}<100} ${if_match ${cpu cpu5}<10} ${endif}${endif}${cpu cpu5}% ${cpubar cpu5 7,65}\
+ ${color e3f4ff} \#6  ${color 92a1aa}${if_match ${cpu cpu6}<100} ${if_match ${cpu cpu6}<10} ${endif}${endif}${cpu cpu6}% ${cpubar cpu6 7,65}\
+ ${color e3f4ff} \#7  ${color 92a1aa}${if_match ${cpu cpu7}<100} ${if_match ${cpu cpu7}<10} ${endif}${endif}${cpu cpu7}% ${cpubar cpu7 7,65}\
+ ${color e3f4ff} \#8  ${color 92a1aa}${if_match ${cpu cpu8}<100} ${if_match ${cpu cpu8}<10} ${endif}${endif}${cpu cpu8}% ${cpubar cpu8 7,65}
+${color e3f4ff}\#9 ${color 92a1aa}${if_match ${cpu cpu9}<100} ${if_match ${cpu cpu9}<10} ${endif}${endif}${cpu cpu9}% ${cpubar cpu9 7,65}\
+ ${color e3f4ff} \#10 ${color 92a1aa}${if_match ${cpu cpu10}<100} ${if_match ${cpu cpu10}<10} ${endif}${endif}${cpu cpu10}% ${cpubar cpu10 7,65}\
+ ${color e3f4ff} \#11 ${color 92a1aa}${if_match ${cpu cpu11}<100} ${if_match ${cpu cpu11}<10} ${endif}${endif}${cpu cpu11}% ${cpubar cpu11 7,65}\
+ ${color e3f4ff} \#12 ${color 92a1aa}${if_match ${cpu cpu12}<100} ${if_match ${cpu cpu12}<10} ${endif}${endif}${cpu cpu12}% ${cpubar cpu12 7,65}
 ${voffset -10}
 #
 #
 #
 ${font Latin Modern Mono,LM Mono Caps 10:size=16}\
 ${color e3f4ff}RAM\
-${color 92a1aa}         ${if_match ${memperc}<10} ${endif}$memperc%\
-${color e3f4ff}   SWAP\
-${color 92a1aa}        ${if_match ${swapperc}<10} ${endif}${swapperc}%\
-${color e3f4ff}   DISC SPACE\
+${color 92a1aa}     ${if_match ${memperc}<10} ${endif}$memperc%\
+${color e3f4ff}  SWAP\
+${color 92a1aa}    ${if_match ${swapperc}<10} ${endif}${swapperc}%\
+${color e3f4ff}  SSD${font Latin Modern Mono,LM Mono Caps 10:size=12}${color 92a1aa} /  \
+${color 92a1aa}    ${voffset -6}${font Latin Modern Mono,LM Mono Caps 10:size=16}${if_match ${fs_used_perc}<10}${endif}${fs_used_perc}%\
+${color e3f4ff}  HDD${font Latin Modern Mono,LM Mono Caps 10:size=12}${color 92a1aa} /home\
 ${alignr}\
-${color 92a1aa} ${fs_used_perc}%
+${voffset -6}${font Latin Modern Mono,LM Mono Caps 10:size=16}${color 92a1aa}${fs_used_perc /home}%
 #
-${color 92a1aa}${membar 7,165}   \
-${color 92a1aa}${swapbar 7,164}\
+${color 92a1aa}${membar 7,120}  \
+${color 92a1aa}${swapbar 7,120}  \
+${color 92a1aa}${fs_bar 7,120}\
 ${alignr}\
-${color 92a1aa}${fs_bar 7,156}
+${color 92a1aa}${fs_bar 7,120 /home}
 #
 ${voffset -16}\
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 $mem / $memmax\
-${alignc -15}$swap / $swapmax\
-${alignr 55}${fs_used} / ${fs_size}
+${alignc -35}$swap / $swapmax\
+${alignc -116}${fs_used} / ${fs_size}\
+${alignr 16}${fs_used /home} / ${fs_size /home}
 #
 #
 #
@@ -158,7 +166,7 @@ ${font Latin Modern Mono,LM Mono Caps 10:size=12}\
 ${color 92a1aa}\# Processes: $processes
 #
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
-${color e3f4ff}\#    PID  NAME               CPU %     \#    PID  NAME             MEMORY  MEM %
+${color e3f4ff}\#     PID NAME               CPU %    \#     PID NAME             MEMORY  MEM %
 #
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color 92a1aa}1 ${top pid 1} \
@@ -166,7 +174,7 @@ ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color e3f4ff}${top name 1} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color 92a1aa}${top cpu 1}% \
-${color 92a1aa}    1 ${top_mem pid 1} \
+${color 92a1aa}   1 ${top_mem pid 1} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color e3f4ff}${top_mem name 1} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
@@ -178,7 +186,7 @@ ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color e3f4ff}${top name 2} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color 92a1aa}${top cpu 2}% \
-${color 92a1aa}    2 ${top_mem pid 2} \
+${color 92a1aa}   2 ${top_mem pid 2} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color e3f4ff}${top_mem name 2} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
@@ -190,7 +198,7 @@ ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color e3f4ff}${top name 3} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color 92a1aa}${top cpu 3}% \
-${color 92a1aa}    3 ${top_mem pid 3} \
+${color 92a1aa}   3 ${top_mem pid 3} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color e3f4ff}${top_mem name 3} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
@@ -202,7 +210,7 @@ ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color e3f4ff}${top name 4} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color 92a1aa}${top cpu 4}% \
-${color 92a1aa}    4 ${top_mem pid 4} \
+${color 92a1aa}   4 ${top_mem pid 4} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color e3f4ff}${top_mem name 4} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
@@ -214,7 +222,7 @@ ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color e3f4ff}${top name 5} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color 92a1aa}${top cpu 5}% \
-${color 92a1aa}    5 ${top_mem pid 5} \
+${color 92a1aa}   5 ${top_mem pid 5} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
 ${color e3f4ff}${top_mem name 5} \
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
@@ -232,9 +240,15 @@ ${font Latin Modern Mono,LM Mono Caps 10:size=16}\
 ${color e3f4ff}INTERNET\
 ${font Latin Modern Mono,LM Mono Caps 10:size=12}\
 ${alignr}${color 92a1aa}Connected to: \
+${if_up wlp3s0}\
 ${alignr}${wireless_essid wlp3s0} \
-(Quality: ${wireless_link_qual_perc wlp3s0}%)
-# iwgetid
+(Quality: ${wireless_link_qual_perc wlp3s0}%)\
+${endif}\
+${if_up eno1}\
+Ethernet\
+${endif}
+# iwgetid for wireless adapters
+# ifconfig for wireless or ethernet adapters
 ${voffset -22}
 #
 ${font Latin Modern Mono,LM Mono Caps 10:size=10}\
@@ -244,10 +258,10 @@ ${alignc -20}Current download\
 ${alignr 40}Total upload\
 ${alignr}Total download
 ${color 92a1aa}\
-${upspeedf wlp3s0}KiB/s\
-${alignc 50}${downspeedf wlp3s0}KiB/s\
-${alignr 125}${totalup wlp3s0}\
-${alignr}${totaldown wlp3s0}
+${upspeedf eno1}KiB/s\
+${alignc 50}${downspeedf eno1}KiB/s\
+${alignr 125}${totalup eno1}\
+${alignr}${totaldown eno1}
 #
 #
 #
