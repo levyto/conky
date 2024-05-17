@@ -259,9 +259,9 @@ ${alignr 40}Total upload\
 ${alignr}Total download
 ${color 92a1aa}\
 ${upspeedf eno1}KiB/s\
-${alignc 50}${downspeedf eno1}KiB/s\
-${alignr 125}${totalup eno1}\
-${alignr}${totaldown eno1}
+${alignc 54}${downspeedf eno1}KiB/s\
+${alignr 131}${totalup eno1}\
+${alignr 50}${totaldown eno1}
 #
 #
 #
